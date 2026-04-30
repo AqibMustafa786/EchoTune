@@ -148,11 +148,31 @@ p {
 }
 
 @media (max-width: 768px) {
+  .legal-page {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
   .legal-content {
     padding: 40px 24px;
+    gap: 32px;
   }
   .legal-header h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-header h1 {
+    font-size: 2.2rem;
+  }
+  .legal-content {
+    padding: 32px 20px;
   }
 }
 </style>

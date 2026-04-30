@@ -189,8 +189,22 @@
 }
 
 @media (max-width: 768px) {
+  .feature-grid-section {
+    padding: 80px 0;
+  }
+  .grid-header h2 {
+    font-size: 2.5rem;
+  }
   .bento-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .bento-inner {
+    padding: 30px;
+    height: 300px;
+  }
+  .bento-content h3 {
+    font-size: 1.5rem;
   }
 }
 </style>

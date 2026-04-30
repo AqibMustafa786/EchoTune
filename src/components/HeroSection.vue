@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import heroImage from '../assets/hero-actual.png';
+import heroImage from '../assets/app-screenshots/homescreen.jpeg';
 </script>
 
 <style scoped>
@@ -231,13 +231,24 @@ p {
 }
 
 @media (max-width: 968px) {
+  .hero-section {
+    padding: 120px 0 60px;
+  }
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  p { margin-left: auto; margin-right: auto; }
-  .hero-btns { justify-content: center; }
-  .hero-stats { justify-content: center; }
-  .hero-mockup { width: 100%; margin-top: 60px; }
+  p { margin-left: auto; margin-right: auto; font-size: 1.1rem; }
+  .hero-btns { justify-content: center; flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
+  .hero-stats { justify-content: center; gap: 20px; }
+  .stat strong { font-size: 1.2rem; }
+  .hero-mockup { width: 100%; margin-top: 40px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2.8rem; }
+  .tag-hero { font-size: 0.8rem; margin-bottom: 20px; }
+  .hero-stats { flex-wrap: wrap; }
 }
 </style>

@@ -1,3 +1,38 @@
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const handleTouchStart = (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+};
+
+const handleTouchEnd = (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+};
+
+const handleSwipe = () => {
+  const swipeDistance = touchEndX - touchStartX;
+  // Detect swipe from left to right with a threshold of 100px
+  if (swipeDistance > 100) {
+    // Redirect to the EchoTune app settings screen via custom deep link
+    window.location.href = 'echotune://settings';
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('touchstart', handleTouchStart, { passive: true });
+  window.addEventListener('touchend', handleTouchEnd, { passive: true });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('touchstart', handleTouchStart);
+  window.removeEventListener('touchend', handleTouchEnd);
+});
+</script>
+
 <template>
   <div class="legal-page section-container">
     <div class="noise-overlay"></div>
@@ -131,11 +166,31 @@ p {
 }
 
 @media (max-width: 768px) {
+  .legal-page {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
   .legal-content {
     padding: 40px 24px;
+    gap: 32px;
   }
   .legal-header h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-header h1 {
+    font-size: 2.2rem;
+  }
+  .legal-content {
+    padding: 32px 20px;
   }
 }
 </style>

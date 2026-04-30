@@ -127,12 +127,35 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
+  .download-section {
+    padding: 60px 0 100px;
+  }
+  .download-card {
+    padding: 60px 24px;
+    border-radius: 32px;
+  }
   .download-card h2 {
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  .download-card p {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
   }
   .download-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
+  }
+  .download-buttons a {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .download-card h2 {
+    font-size: 2.2rem;
   }
 }
 </style>

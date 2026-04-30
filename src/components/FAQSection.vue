@@ -137,8 +137,21 @@ const faqs = [
 }
 
 @media (max-width: 768px) {
+  .faq-section {
+    padding: 80px 0;
+  }
+  .faq-header {
+    margin-bottom: 40px;
+  }
   .faq-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  .faq-item {
+    padding: 20px;
+  }
+  .faq-question h3 {
+    font-size: 1.1rem;
+    padding-right: 12px;
   }
 }
 </style>

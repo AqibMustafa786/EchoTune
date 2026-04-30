@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import videoImage from '../assets/app-screenshots/videofullscreen.jpg';
+import videoImage from '../assets/app-screenshots/videoplayer.jpeg';
 </script>
 
 <style scoped>

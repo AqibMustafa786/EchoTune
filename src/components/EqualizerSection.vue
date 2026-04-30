@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import eqImage from '../assets/app-screenshots/equalizer.jpg';
+import eqImage from '../assets/app-screenshots/equalizer.jpeg';
 
 const presets = [
   'Rock', 'Pop', 'Jazz', 'Classical', 'Heavy Metal', 'Hip Hop', 'Dance', 'Bass Boost', 'Treble Boost', 'Vocal', 'Electronic'

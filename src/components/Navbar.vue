@@ -122,11 +122,27 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 16px 0;
+  }
   .nav-container {
-    max-width: 90%;
+    max-width: 95%;
+    padding: 6px 8px 6px 16px;
+  }
+  .logo {
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+  .logo-img {
+    width: 28px;
+    height: 28px;
   }
   .nav-links a:not(.nav-cta) {
     display: none;
+  }
+  .nav-cta {
+    padding: 8px 18px !important;
+    font-size: 0.8rem !important;
   }
 }
 </style>

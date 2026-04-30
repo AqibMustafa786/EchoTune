@@ -35,7 +35,7 @@
             <h4>Legal</h4>
             <router-link to="/privacy">Privacy Policy</router-link>
             <router-link to="/terms">Terms & Conditions</router-link>
-            <router-link to="/terms">License</router-link>
+            <router-link to="/license">License</router-link>
           </div>
           <div class="footer-col">
             <h4>Connect</h4>

@@ -20,7 +20,6 @@
             <div class="phone-screen">
               <img :src="moodImage" alt="Mood Filters Mockup" loading="lazy" />
             </div>
-            <div class="mood-glow" :style="{ background: currentMoodColor }"></div>
           </div>
         </div>
       </div>
@@ -41,10 +40,6 @@ const moods = [
 ];
 
 const activeMood = ref('Party');
-
-const currentMoodColor = computed(() => {
-  return moods.find(m => m.name === activeMood.value)?.color || '#FF007F';
-});
 </script>
 
 <style scoped>
@@ -96,41 +91,42 @@ const currentMoodColor = computed(() => {
   transform: translateY(-2px);
 }
 
-.mockup-container {
+.mood-visual {
   position: relative;
-}
-
-.mockup-img {
-  width: 100%;
-  border-radius: 40px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  position: relative;
-  z-index: 2;
-}
-
-.mood-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  filter: blur(80px);
-  opacity: 0.2;
-  transition: background 0.8s ease;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 968px) {
+  .mood-section {
+    padding: 80px 0;
+  }
+  .mood-text h2 {
+    font-size: 2.8rem;
+  }
   .mood-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
   .mood-text p {
     margin: 0 auto 40px;
+    font-size: 1.1rem;
   }
   .mood-tags {
     justify-content: center;
+  }
+  .mood-visual {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mood-text h2 {
+    font-size: 2.2rem;
+  }
+  .mood-tag {
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
 }
 </style>

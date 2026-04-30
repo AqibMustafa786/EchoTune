@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import PrivacyPolicy from '../views/PrivacyPolicy.vue';
 import TermsConditions from '../views/TermsConditions.vue';
+import License from '../views/License.vue';
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/terms',
     name: 'TermsConditions',
     component: TermsConditions
+  },
+  {
+    path: '/license',
+    name: 'License',
+    component: License
   }
 ];
 
