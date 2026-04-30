@@ -1,4 +1,40 @@
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const handleTouchStart = (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+};
+
+const handleTouchEnd = (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+};
+
+const handleSwipe = () => {
+  const swipeDistance = touchEndX - touchStartX;
+  // Detect swipe from left to right with a threshold of 100px
+  if (swipeDistance > 100) {
+    // Redirect to the EchoTune app settings screen via custom deep link
+    window.location.href = 'echotune://settings';
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('touchstart', handleTouchStart, { passive: true });
+  window.addEventListener('touchend', handleTouchEnd, { passive: true });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('touchstart', handleTouchStart);
+  window.removeEventListener('touchend', handleTouchEnd);
+});
+</script>
+
 <template>
+
   <div class="legal-page section-container">
     <div class="noise-overlay"></div>
     <div class="glow-spot top-right"></div>
