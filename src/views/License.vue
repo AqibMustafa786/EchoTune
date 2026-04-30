@@ -1,5 +1,9 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -15,9 +19,7 @@ const handleTouchEnd = (e) => {
 
 const handleSwipe = () => {
   const swipeDistance = touchEndX - touchStartX;
-  // Detect swipe from left to right with a threshold of 100px
   if (swipeDistance > 100) {
-    // Redirect to the EchoTune app settings screen via custom deep link
     window.location.href = 'echotune://settings';
   }
 };
@@ -25,6 +27,45 @@ const handleSwipe = () => {
 onMounted(() => {
   window.addEventListener('touchstart', handleTouchStart, { passive: true });
   window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+  let ctx = gsap.context(() => {
+    gsap.from(".legal-header > *", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+
+    const sections = document.querySelectorAll('.license-section');
+    sections.forEach((section) => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+
+    const items = document.querySelectorAll('.license-item');
+    items.forEach((item, index) => {
+      gsap.from(item, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.5,
+        delay: (index % 3) * 0.1,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 90%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+  });
 });
 
 onUnmounted(() => {
@@ -37,14 +78,15 @@ onUnmounted(() => {
   <div class="legal-page section-container">
     <div class="noise-overlay"></div>
     <div class="glow-spot top-left"></div>
+    <div class="glow-spot bottom-right"></div>
     
     <header class="legal-header">
       <h1 class="gradient-text">Open Source Licenses</h1>
-      <p class="last-updated">EchoTune is built with love and open-source software.</p>
+      <p class="subtitle">EchoTune is built with love and open-source software.</p>
     </header>
 
     <div class="legal-content glass-card">
-      <section>
+      <section class="license-section">
         <h2>Acknowledgements</h2>
         <p>
           EchoTune is built using trusted open-source technologies. We sincerely thank the developers and communities behind these tools.
@@ -52,9 +94,9 @@ onUnmounted(() => {
         </p>
       </section>
 
-      <section>
-        <h2>Core Technologies</h2>
-        <div class="license-group">
+      <section class="license-section">
+        <h3 class="group-title">Core Frameworks</h3>
+        <div class="license-grid">
           <div class="license-item">
             <span class="lib-name">Flutter SDK</span>
             <span class="license-type">BSD-3-Clause</span>
@@ -66,9 +108,9 @@ onUnmounted(() => {
         </div>
       </section>
 
-      <section>
-        <h2>Audio & Media Playback</h2>
-        <div class="license-group">
+      <section class="license-section">
+        <h3 class="group-title">Audio & Media Playback</h3>
+        <div class="license-grid">
           <div class="license-item">
             <span class="lib-name">just_audio</span>
             <span class="license-type">MIT</span>
@@ -85,12 +127,20 @@ onUnmounted(() => {
             <span class="lib-name">video_player</span>
             <span class="license-type">BSD-3-Clause</span>
           </div>
+          <div class="license-item">
+            <span class="lib-name">audio_session</span>
+            <span class="license-type">MIT</span>
+          </div>
+          <div class="license-item">
+            <span class="lib-name">Autoplay Engine</span>
+            <span class="license-type">MIT</span>
+          </div>
         </div>
       </section>
 
-      <section>
-        <h2>State Management & Storage</h2>
-        <div class="license-group">
+      <section class="license-section">
+        <h3 class="group-title">State Management & Storage</h3>
+        <div class="license-grid">
           <div class="license-item">
             <span class="lib-name">provider</span>
             <span class="license-type">MIT</span>
@@ -106,9 +156,9 @@ onUnmounted(() => {
         </div>
       </section>
 
-      <section>
-        <h2>User Interface & Experience</h2>
-        <div class="license-group">
+      <section class="license-section">
+        <h3 class="group-title">User Interface & Experience</h3>
+        <div class="license-grid">
           <div class="license-item">
             <span class="lib-name">google_fonts</span>
             <span class="license-type">Apache 2.0</span>
@@ -124,9 +174,9 @@ onUnmounted(() => {
         </div>
       </section>
 
-      <section>
-        <h2>System Integration</h2>
-        <div class="license-group">
+      <section class="license-section">
+        <h3 class="group-title">System & Permissions</h3>
+        <div class="license-grid">
           <div class="license-item">
             <span class="lib-name">share_plus</span>
             <span class="license-type">BSD-3-Clause</span>
@@ -140,25 +190,43 @@ onUnmounted(() => {
             <span class="license-type">MIT</span>
           </div>
           <div class="license-item">
+            <span class="lib-name">photo_manager</span>
+            <span class="license-type">MIT</span>
+          </div>
+          <div class="license-item">
             <span class="lib-name">url_launcher</span>
             <span class="license-type">BSD-3-Clause</span>
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="license-section">
+        <h3 class="group-title">User Engagement & Marketing</h3>
+        <div class="license-grid">
+          <div class="license-item">
+            <span class="lib-name">Engagement Engine</span>
+            <span class="license-type">MIT</span>
+          </div>
+          <div class="license-item">
+            <span class="lib-name">Local Notifications</span>
+            <span class="license-type">BSD-3-Clause</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="license-section legal-notes">
         <h2>Legal Compliance</h2>
         <p>
           All third-party libraries used in EchoTune remain the property of their respective authors and are distributed under their original licenses.
           EchoTune does not modify or claim ownership of any open-source components.
         </p>
-        <p>
+        <div class="app-hint">
           Full license texts are accessible within the app under:
           <strong>Settings → About → Open Source Licenses</strong>.
-        </p>
+        </div>
       </section>
 
-      <section>
+      <section class="license-section">
         <h2>Privacy Assurance</h2>
         <p>
           EchoTune does not collect, store, or share personal user data. All media playback occurs locally on the user's device.
@@ -179,89 +247,124 @@ onUnmounted(() => {
   padding-bottom: 120px;
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .top-left {
-  top: -100px;
-  left: -100px;
+  top: -150px;
+  left: -150px;
+  background: var(--primary);
+}
+
+.bottom-right {
+  bottom: -150px;
+  right: -150px;
+  background: var(--secondary);
 }
 
 .legal-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .legal-header h1 {
-  font-size: 4.5rem;
-  margin-bottom: 12px;
+  font-size: 5rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.04em;
 }
 
-.last-updated {
+.subtitle {
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
-  color: var(--text-dim);
-  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
 }
 
 .legal-content {
   padding: 80px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 64px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+.license-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 24px;
   color: white;
-  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(to right, #fff, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.group-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--primary-light);
+  margin-bottom: 24px;
+  font-weight: 800;
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--text-muted);
 }
 
-.license-group {
+.license-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
 }
 
 .license-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 24px;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
+  border-radius: 20px;
   border: 1px solid var(--glass-border);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .license-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px) scale(1.02);
   border-color: var(--primary-light);
+  box-shadow: 0 10px 30px rgba(255, 0, 127, 0.1);
 }
 
 .lib-name {
   color: white;
   font-weight: 700;
   font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
 }
 
 .license-type {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--primary-light);
-  background: rgba(255, 45, 133, 0.1);
-  padding: 4px 12px;
+  background: rgba(255, 45, 133, 0.15);
+  padding: 6px 14px;
   border-radius: 100px;
-  font-weight: 600;
+  font-weight: 700;
+  border: 1px solid rgba(255, 45, 133, 0.2);
+}
+
+.legal-notes .app-hint {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  font-size: 1.05rem;
+  color: var(--text-main);
 }
 
 .contact-info {
@@ -271,32 +374,38 @@ p {
   text-align: center;
 }
 
+@media (max-width: 1024px) {
+  .legal-content {
+    padding: 60px;
+  }
+}
+
 @media (max-width: 768px) {
   .legal-page {
-    padding-top: 120px;
-    padding-bottom: 60px;
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+  .legal-header h1 {
+    font-size: 3.2rem;
   }
   .legal-content {
     padding: 40px 24px;
-    gap: 32px;
+    gap: 48px;
   }
-  .legal-header h1 {
-    font-size: 2.8rem;
+  .license-section h2 {
+    font-size: 1.8rem;
   }
-  h2 {
-    font-size: 1.6rem;
-  }
-  p {
-    font-size: 1rem;
-  }
-  .license-group {
+  .license-grid {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 480px) {
   .legal-header h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
   }
   .legal-content {
     padding: 32px 20px;

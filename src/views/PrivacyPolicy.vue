@@ -1,5 +1,9 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -15,9 +19,7 @@ const handleTouchEnd = (e) => {
 
 const handleSwipe = () => {
   const swipeDistance = touchEndX - touchStartX;
-  // Detect swipe from left to right with a threshold of 100px
   if (swipeDistance > 100) {
-    // Redirect to the EchoTune app settings screen via custom deep link
     window.location.href = 'echotune://settings';
   }
 };
@@ -25,6 +27,45 @@ const handleSwipe = () => {
 onMounted(() => {
   window.addEventListener('touchstart', handleTouchStart, { passive: true });
   window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+  let ctx = gsap.context(() => {
+    gsap.from(".legal-header > *", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+
+    const sections = document.querySelectorAll('.policy-section');
+    sections.forEach((section) => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+
+    const items = document.querySelectorAll('.permission-item');
+    items.forEach((item, index) => {
+      gsap.from(item, {
+        opacity: 0,
+        x: -20,
+        duration: 0.5,
+        delay: (index % 3) * 0.1,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 90%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+  });
 });
 
 onUnmounted(() => {
@@ -37,50 +78,88 @@ onUnmounted(() => {
   <div class="legal-page section-container">
     <div class="noise-overlay"></div>
     <div class="glow-spot top-left"></div>
+    <div class="glow-spot bottom-right"></div>
     
     <header class="legal-header">
       <h1 class="gradient-text">Privacy Policy</h1>
-      <p class="last-updated">Last updated: April 30, 2026</p>
+      <p class="subtitle">Your privacy is our absolute priority. Last updated: April 30, 2026.</p>
     </header>
 
     <div class="legal-content glass-card">
-      <section>
-        <h2>1. Introduction</h2>
-        <p>EchoTune is an offline music and video player. We are committed to protecting your privacy. This app is designed to work completely on your device without collecting personal data.</p>
+      <section class="policy-section">
+        <h2>1. Zero-Data Collection</h2>
+        <p>
+          EchoTune is designed as a **completely offline** media player. We do not collect, store, or share any personal information. 
+          There are no user accounts, no tracking pixels, and no external analytics services integrated into the app.
+        </p>
       </section>
 
-      <section>
-        <h2>2. Data Collection</h2>
-        <p>EchoTune <strong>does NOT collect, store, or share any personal information</strong>, including name, email address, phone number, or location. We do NOT create user accounts.</p>
+      <section class="policy-section">
+        <h2>2. Media & Storage Access</h2>
+        <p>
+          To function as a media player, EchoTune requires access to your device's storage. We use the <strong>photo_manager</strong> and <strong>on_audio_query</strong> 
+          libraries to scan for local audio and video files.
+        </p>
+        <div class="highlight-box">
+          <p><strong>Strict Privacy:</strong> Your files never leave your device. EchoTune does not upload, copy, or transmit your media to any server.</p>
+        </div>
       </section>
 
-      <section>
-        <h2>3. Device Storage Access</h2>
-        <p>EchoTune requires access to your device storage in order to scan and display your audio and video files, organize media into albums, artists, and folders, and enable playback.</p>
-        <p><strong>Important:</strong> All files remain on your device. We do NOT upload, copy, or share your media files.</p>
+      <section class="policy-section">
+        <h2>3. Permissions Overview</h2>
+        <div class="permission-grid">
+          <div class="permission-item">
+            <div class="perm-icon">📂</div>
+            <div class="perm-info">
+              <h3>Storage / Media</h3>
+              <p>Used to index and play your local music and video library.</p>
+            </div>
+          </div>
+          <div class="permission-item">
+            <div class="perm-icon">🔔</div>
+            <div class="perm-info">
+              <h3>Notifications</h3>
+              <p>Used by our <strong>Engagement Engine</strong> for local playback controls and reminders.</p>
+            </div>
+          </div>
+          <div class="permission-item">
+            <div class="perm-icon">🎤</div>
+            <div class="perm-info">
+              <h3>Microphone</h3>
+              <p>Optional access used exclusively for voice-search within the app.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2>4. Permissions Usage</h2>
-        <ul class="permission-list">
-          <li><strong>Storage / Media Access:</strong> Read and display your local media files and play audio and video.</li>
-          <li><strong>Microphone (Optional):</strong> Used only for voice search functionality. We do NOT record or store audio.</li>
-          <li><strong>Internet (Optional):</strong> Used only for app updates (if applicable). No data is sent to any server.</li>
+      <section class="policy-section">
+        <h2>4. Intelligent Engines</h2>
+        <p>
+          EchoTune features advanced local engines to enhance your experience:
+        </p>
+        <ul class="feature-list">
+          <li><strong>Autoplay Engine:</strong> Analyzes your local listening patterns on-device to suggest the next track. No data is sent to the cloud.</li>
+          <li><strong>Engagement Engine:</strong> Triggers local notifications to help you discover app features. These are processed entirely within the app.</li>
         </ul>
       </section>
 
-      <section>
-        <h2>5. Data Storage</h2>
-        <p>All app data (favorites, playlists, history) is stored locally on your device. We do NOT use cloud storage and do NOT share any data with third parties.</p>
+      <section class="policy-section">
+        <h2>5. Data Security</h2>
+        <p>
+          All app-specific data, such as your favorites, playlists, and equalizer presets, are stored in a local encrypted database (**Hive**) on your device. 
+          Uninstalling the app will remove all local data associated with it.
+        </p>
       </section>
 
-      <section>
-        <h2>6. Third-Party Services</h2>
-        <p>EchoTune <strong>does NOT use any third-party services</strong> that collect user data.</p>
+      <section class="policy-section">
+        <h2>6. Third-Party Links</h2>
+        <p>
+          The app may contain links to our official website or open-source repositories. Once you leave the app, the privacy policy of the destination site applies.
+        </p>
       </section>
-      
+
       <div class="contact-info">
-        <p>For any questions: <a href="mailto:aqib2k1@gmail.com" class="gradient-text">aqib2k1@gmail.com</a></p>
+        <p>Privacy concerns? Contact us at: <a href="mailto:aqib2k1@gmail.com" class="gradient-text">aqib2k1@gmail.com</a></p>
       </div>
     </div>
   </div>
@@ -92,70 +171,126 @@ onUnmounted(() => {
   padding-bottom: 120px;
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .top-left {
-  top: -100px;
-  left: -100px;
+  top: -150px;
+  left: -150px;
+  background: var(--primary);
+}
+
+.bottom-right {
+  bottom: -150px;
+  right: -150px;
+  background: var(--secondary);
 }
 
 .legal-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .legal-header h1 {
-  font-size: 4.5rem;
-  margin-bottom: 12px;
+  font-size: 5rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.04em;
 }
 
-.last-updated {
+.subtitle {
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
-  color: var(--text-dim);
-  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-size: 1.25rem;
 }
 
 .legal-content {
   padding: 80px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 64px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+.policy-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 24px;
   color: white;
-  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(to right, #fff, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--text-muted);
 }
 
-.permission-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.permission-list li {
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.03);
+.highlight-box {
+  margin-top: 24px;
+  padding: 24px;
+  background: rgba(255, 45, 133, 0.05);
+  border-left: 4px solid var(--primary);
   border-radius: 12px;
-  border: 1px solid var(--glass-border);
-  color: var(--text-muted);
 }
 
-.permission-list strong {
+.permission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.permission-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.4s ease;
+}
+
+.permission-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-5px);
+  border-color: var(--primary-light);
+}
+
+.perm-icon {
+  font-size: 2rem;
+}
+
+.perm-info h3 {
+  color: white;
+  margin-bottom: 8px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+}
+
+.feature-list li {
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.feature-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
   color: var(--primary-light);
-  margin-right: 8px;
+  font-weight: bold;
 }
 
 .contact-info {
@@ -165,29 +300,32 @@ p {
   text-align: center;
 }
 
+@media (max-width: 1024px) {
+  .legal-content {
+    padding: 60px;
+  }
+}
+
 @media (max-width: 768px) {
   .legal-page {
-    padding-top: 120px;
-    padding-bottom: 60px;
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+  .legal-header h1 {
+    font-size: 3.2rem;
   }
   .legal-content {
     padding: 40px 24px;
-    gap: 32px;
+    gap: 48px;
   }
-  .legal-header h1 {
-    font-size: 2.8rem;
-  }
-  h2 {
-    font-size: 1.6rem;
-  }
-  p {
-    font-size: 1rem;
+  .policy-section h2 {
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .legal-header h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   .legal-content {
     padding: 32px 20px;
