@@ -1,0 +1,111 @@
+Listed directory echo_tune
+Listed directory lib
+Listed directory screens
+Searched for "mood"
+Viewed privacy_policy_screen.dart:1-104
+Viewed terms_conditions_screen.dart:1-104
+Viewed feed_screen.dart:1-229
+Viewed video_player_screen.dart:1-800
+Viewed equalizer_screen.dart:1-342
+Viewed equalizer_preset.dart:1-35
+Viewed settings_screen.dart:1-444
+Viewed app_constants.dart:1-54
+Searched for "moodsBox"
+Viewed storage_service.dart:1-206
+Searched for "moods = ["
+Viewed song_tile.dart:1-563
+Viewed charts_screen.dart:1-394
+Viewed discover_screen.dart:1-381
+Viewed video_list_screen.dart:1-393
+
+Here is the comprehensive documentation for **EchoTune**, covering every feature, screen, setting, and legal content found in the codebase. You can use this content directly for your website.
+
+# EchoTune Product Documentation
+
+## 📱 Core App Features
+EchoTune is a premium, high-performance offline music and video player designed with a modern glassmorphic aesthetic.
+
+### 1. Media Library & Management
+*   **Offline Playback**: High-fidelity playback for local MP3, WAV, FLAC, and other audio formats.
+*   **Video Gallery**: A dedicated section for gallery videos with high-quality thumbnail previews.
+*   **Automatic Scanning**: Intelligently scans device storage to organize music by Songs, Albums, and Artists.
+*   **Duplicate Cleaner**: A specialized tool to find and remove duplicate audio files to save storage.
+*   **Smart Playlists**: Automatically generated lists for *Recently Played*, *Most Played*, and *Recently Added*.
+
+### 2. "Swipe" Technology (Shorts Mode)
+EchoTune features a TikTok/Instagram-style vertical swipe interaction within the **Video Player**.
+*   **Vertical Swiping**: Effortlessly skip to the next or previous video with a smooth vertical flick.
+*   **Haptic Feedback**: High-quality haptics during swipes for a premium tactile feel.
+*   **Immersive Fullscreen**: Double-tap to enter a distraction-free immersive mode.
+*   **Gestural Controls**: Support for both horizontal and vertical drag gestures to control playback and navigation.
+
+### 3. Professional Equalizer
+A sophisticated 5-band equalizer with advanced audio modification tools.
+*   **5-Band EQ**: Precise control over 60Hz, 230Hz, 910Hz, 3.6kHz, and 14kHz frequencies.
+*   **15+ Presets**: Including Rock, Pop, Jazz, Classical, Heavy Metal, Hip Hop, Dance, Bass Boost, Treble Boost, Vocal, and Electronic.
+*   **Deep Bass Boost**: A dedicated slider to enhance low-end frequencies (0–100%).
+*   **3D Surround (Virtualizer)**: Creates an immersive spatial audio experience (0–100%).
+*   **Visualizer Card**: Real-time visual feedback of the audio spectrum.
+
+### 4. Moods Feature
+Personalize your music collection by tagging songs with emotional moods.
+*   **Party 🥳**: High energy for celebrations.
+*   **Sad 😔**: Melancholic tracks for reflection.
+*   **Chill 😌**: Relaxing ambient beats.
+*   **Workout 💪**: High-BPM tracks to keep you moving.
+*   **Love ❤️**: Romantic and soulful melodies.
+*   **Mood Filtering**: Easily find music that matches your current vibe.
+
+---
+
+## 🖼️ Screen Overviews
+
+| Screen | Description |
+| :--- | :--- |
+| **Home** | Your central hub with quick access to favorites, recent tracks, and custom playlists. |
+| **Explore** | Discover your own library through "Recently Added" carousels and artist spotlights. |
+| **Trending** | A usage-based "Charts" screen showing your most played songs, albums, and artists. |
+| **Video Gallery** | A grid/list toggle view of all device videos with size and duration metadata. |
+| **Video Player** | The immersive swipe-based player with full playback controls and queue management. |
+| **Library** | A categorized view of your entire collection (Songs, Albums, Artists, Folders). |
+| **Search** | Ultra-fast search with history tracking and real-time suggestions. |
+| **Equalizer** | The audio lab for tuning your sound signature. |
+| **Settings** | Deep customization for the app's look and behavior. |
+
+---
+
+## ⚙️ Settings & Options
+*   **Appearance**:
+    *   **Theme Mode**: Support for Light, Dark, and System-adaptive themes.
+    *   **Accent Colors**: Choose from 9+ premium color presets (Sunset Orange, Deep Sea, Neon Green, etc.).
+*   **Playback Controls**:
+    *   **Shake to Change**: Toggle to skip tracks by physically shaking your device.
+    *   **Sleep Timer**: Automatically stop playback after 5, 15, 30, 45, or 60 minutes.
+*   **Widgets**: Premium home screen widget support with real-time artwork and playback sync.
+
+---
+
+## ⚖️ Legal Documentation
+
+### Privacy Policy
+**Last Updated: April 30, 2026**
+1.  **Information Collection**: EchoTune is primarily an offline player. We do not collect personal data like names or emails. We access storage only to play local files.
+2.  **Permissions**: We require Storage Access (to play music), Microphone (for voice search), and Internet (for anonymous crash reporting).
+3.  **Third-Party Services**: We use Firebase Analytics for non-personal usage data to improve app performance.
+4.  **Data Security**: Your music remains on your device. We do not upload your files to any servers.
+5.  **Contact**: support@echotune.com
+
+### Terms & Conditions
+**Last Updated: April 30, 2026**
+1.  **Acceptance**: By using EchoTune, you agree to these terms.
+2.  **Usage**: EchoTune is for personal, non-commercial use. You are responsible for the legality of the content you play.
+3.  **Intellectual Property**: The app design and features are the property of EchoTune. Reverse engineering is prohibited.
+4.  **Disclaimer**: The app is provided "as is" without warranties of any kind.
+
+---
+
+## 💎 Premium Aesthetics
+*   **Glassmorphism**: Use of frosted glass effects throughout the UI.
+*   **Google Fonts**: Primarily uses the **Outfit** and **Inter** font families for a modern look.
+*   **Gradients**: Vibrant, harmonious gradients tailored to the selected accent color.
+*   **Micro-animations**: Smooth transitions between screens and interactive button states.

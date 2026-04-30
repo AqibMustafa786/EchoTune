@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-dark: #030303;
+  --bg-card: rgba(15, 15, 15, 0.6);
+  --primary: #8B5CF6;
+  --primary-light: #A78BFA;
+  --primary-glow: rgba(139, 92, 246, 0.4);
+  --secondary: #06B6D4;
+  --secondary-glow: rgba(6, 182, 212, 0.3);
+  --accent: #D946EF;
+  --accent-glow: rgba(217, 70, 239, 0.3);
+  
+  --text-main: #FFFFFF;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+  
+  /* Glassmorphism */
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-heavy: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-bright: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(24px);
+  
+  /* Spacing & Radii */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-full: 100px;
+  
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis Smooth Scroll Fixes */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+}
+
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* Layout */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --glass-blur: blur(10px);
+  }
+  .section-container {
+    padding: 0 20px;
+  }
+}
+
+/* Components */
+.glass-card {
+  background: var(--glass);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: border 0.3s ease, background 0.3s ease, transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-bright);
+  background: var(--glass-heavy);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #FFF 0%, var(--primary-light) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  padding: 16px 40px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px var(--primary-glow);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 40px var(--primary-glow);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: white;
+  padding: 16px 40px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--glass-heavy);
+  border-color: var(--glass-border-bright);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border: 3px solid var(--bg-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #252525;
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  z-index: 9999;
+}
+
+/* Glow Elements */
+.glow-spot {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: var(--primary);
+  filter: blur(150px);
+  opacity: 0.15;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Smartphone Mockup Frame */
+.phone-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 9 / 19.5;
+  background: #000;
+  border-radius: 44px;
+  padding: 12px;
+  box-shadow: 
+    0 0 0 4px #1a1a1a,
+    0 0 0 5px #333,
+    0 30px 60px rgba(0,0,0,0.8),
+    inset 0 0 20px rgba(255,255,255,0.05);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 5;
+}
+
+.phone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 30px;
+  background: #000;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  z-index: 10;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #050505;
+  position: relative;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 3D Effect for Phone */
+.phone-3d {
+  transform: perspective(1200px) rotateY(-15deg) rotateX(5deg) scale(1.05);
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.phone-3d:hover {
+  transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.1);
+}
+

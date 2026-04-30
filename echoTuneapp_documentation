@@ -1,0 +1,77 @@
+# EchoTune - Professional Music Player Documentation
+
+EchoTune is a high-performance, premium offline music player built with Flutter. It features a modern, glassmorphic UI design and advanced audio management capabilities.
+
+## 📱 Application Overview
+
+### Core Features
+
+- **Local Library Scanning**: Automatically scans and categorizes local audio files (MP3, WAV, etc.) by Artists, Albums, and Folders.
+- **AI-Powered Mood Filters**: Analyzes music to provide mood-based filtering (Happy, Relax, Sad, Gym).
+- **Intelligent Navigation**: A seamless navigation system that handles both tab-based switching and nested route popping.
+- **Premium Audio Engine**: High-fidelity playback with gapless transitions, shuffle/repeat modes, and persistent mini-player.
+- **Advanced Equalizer**: Professional-grade equalizer with presets and manual gain control.
+- **Home Screen Widgets**: Support for modern Android widgets with real-time artwork and playback control.
+
+---
+
+## 🏗 Architecture
+
+The app follows a **Provider-based state management** architecture, separating business logic from the UI.
+
+### Key Providers
+
+- **`AudioPlayerProvider`**: Manages the playback engine, position tracking, and audio session.
+- **`MusicLibraryProvider`**: Handles file system scanning, metadata extraction, and library indexing.
+- **`PlaylistProvider`**: Manages favorites, custom playlists, recently played, and search history.
+- **`NavigationProvider`**: Controls the `MainShell` page controller and tab indices.
+- **`SettingsProvider` / `ThemeProvider`**: Handles user preferences, dark/light modes, and dynamic accent colors.
+
+---
+
+## 🧭 Navigation System
+
+### Main Shell (`MainShell`)
+
+The root of the application is the `MainShell`, which hosts a persistent floating glassmorphic navigation bar and a shared `MiniPlayer`.
+
+**Tabs:**
+
+0. **Home**: Dashboard with recently played and trending local tracks.
+1. **Explore**: Detailed view of albums, artists, and recently added songs.
+2. **Search**: Advanced search with history and voice recognition support.
+3. **Trending**: Charts based on playback frequency and recent additions.
+4. **Library**: Central hub for collections, folders, and system tools (Duplicate Cleaner).
+
+### Intelligent Back Navigation
+
+A custom navigation logic ensures the "Back" icon always behaves predictably:
+
+- **Pushed Routes**: If a screen was pushed (e.g., from a list to a detail screen), clicking back pops the route.
+- **Tab Context**: If a main tab screen is active, clicking back switches the context to the logical previous tab (usually Home).
+
+---
+
+## 🎨 Design Language
+
+- **Glassmorphism**: Heavy use of `BackdropFilter` and transparency for a modern depth effect.
+- **Dynamic Gradients**: Screen-specific gradients that adapt to the current theme.
+- **Micro-Animations**: Uses `flutter_animate` for smooth transitions and interactive elements.
+- **Typography**: Optimized using Google Fonts (Outfit, Inter) for maximum legibility.
+
+---
+
+## 🛠 Maintenance & Build
+
+- **Android**: Supports Gradle 8+ with modern `kts` configuration.
+- **Widgets**: Uses `home_widget` for deep integration with the Android launcher.
+- **Cleanup Tools**: Includes a "Duplicate Cleaner" to help manage local storage efficiently.
+
+---
+
+## 📝 Recent Updates (v2.x)
+
+- Restored build stability by resolving Gradle JVM memory issues.
+- Implemented intelligent back navigation across all main tabs.
+- Optimized library scanning performance.
+- Hardened the audio equalizer logic for professional-grade gain accuracy.
