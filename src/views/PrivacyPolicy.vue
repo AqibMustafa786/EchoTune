@@ -119,7 +119,7 @@ onUnmounted(() => {
             <div class="perm-icon">🔔</div>
             <div class="perm-info">
               <h3>Notifications</h3>
-              <p>Used by our <strong>Engagement Engine</strong> for local playback controls and reminders.</p>
+              <p>Critical for displaying the <strong>Media Controller</strong>. On Android 13+, this permission ensures the OS does not terminate the audio process during background playback.</p>
             </div>
           </div>
           <div class="permission-item">
@@ -127,6 +127,20 @@ onUnmounted(() => {
             <div class="perm-info">
               <h3>Microphone</h3>
               <p>Optional access used exclusively for voice-search within the app.</p>
+            </div>
+          </div>
+          <div class="permission-item">
+            <div class="perm-icon">🔋</div>
+            <div class="perm-info">
+              <h3>Battery Optimization</h3>
+              <p>Requested to prevent system-kills during long background listening sessions.</p>
+            </div>
+          </div>
+          <div class="permission-item">
+            <div class="perm-icon">⏰</div>
+            <div class="perm-info">
+              <h3>Exact Alarms</h3>
+              <p>Used to schedule precise engagement reminders via our local engine.</p>
             </div>
           </div>
         </div>
@@ -138,7 +152,7 @@ onUnmounted(() => {
           EchoTune features advanced local engines to enhance your experience:
         </p>
         <ul class="feature-list">
-          <li><strong>Autoplay Engine:</strong> Analyzes your local listening patterns on-device to suggest the next track. No data is sent to the cloud.</li>
+          <li><strong>Autoplay Engine:</strong> Manages sequential playback by monitoring track completion and automatically transitioning to the next item in your queue.</li>
           <li><strong>Engagement Engine:</strong> Triggers local notifications to help you discover app features. These are processed entirely within the app.</li>
         </ul>
       </section>

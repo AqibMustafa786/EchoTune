@@ -12,6 +12,7 @@
         <a href="/#moods">Moods</a>
         <a href="/#swipe">Swipe</a>
         <a href="/#equalizer">EQ</a>
+        <router-link to="/technical">Technical</router-link>
         <a href="/#download" class="nav-cta btn-primary">Download</a>
       </div>
     </div>

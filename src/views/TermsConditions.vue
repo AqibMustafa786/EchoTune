@@ -112,9 +112,9 @@ onUnmounted(() => {
           EchoTune utilizes advanced on-device technologies to provide a premium experience:
         </p>
         <ul class="feature-terms">
-          <li><strong>Autoplay Engine:</strong> By using the app, you acknowledge that EchoTune processes local playback history to automate media transitions.</li>
+          <li><strong>Autoplay Engine:</strong> You acknowledge that EchoTune automates media transitions by monitoring queue state. This feature depends on persistent background service stability.</li>
           <li><strong>Engagement Engine:</strong> You agree to receive local notifications (which can be disabled in system settings) for app updates and feature highlights.</li>
-          <li><strong>Permissions:</strong> You acknowledge that storage and media permissions are essential for the app's core functionality.</li>
+          <li><strong>Permissions:</strong> You acknowledge that <strong>Notification permissions</strong> are critical for background stability on Android 13+. Denial may result in audio termination when the app is minimized.</li>
         </ul>
       </section>
 

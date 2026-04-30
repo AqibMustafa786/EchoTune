@@ -10,10 +10,10 @@
         <div class="bento-item lg reveal">
           <div class="bento-inner glass-card">
             <div class="bento-content">
-              <h3>Intelligent Library Scanning</h3>
-              <p>Automatically indexes your entire device storage, extracting high-quality metadata and album art for a professional library experience.</p>
+              <h3>Pro-Grade Library Scanner</h3>
+              <p>Intelligent MediaStore integration that indexes your storage while filtering out system sounds and notifications (under 30s) for a pristine library.</p>
               <div class="bento-badges">
-                <span>MP3</span> <span>FLAC</span> <span>WAV</span> <span>ALAC</span>
+                <span>MediaStore API</span> <span>MP3/FLAC</span> <span>Metadata Extraction</span>
               </div>
             </div>
             <div class="bento-bg bg-1"></div>
@@ -42,8 +42,8 @@
         <div class="bento-item sm reveal">
           <div class="bento-inner glass-card">
             <div class="bento-content">
-              <h3>Shake to Skip</h3>
-              <p>Skip tracks by physically shaking your device. Perfect for workouts.</p>
+              <h3>Engagement Engine</h3>
+              <p>Smart daily reminders to re-engage with your music after 24h of inactivity.</p>
             </div>
           </div>
         </div>

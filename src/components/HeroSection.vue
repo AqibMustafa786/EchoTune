@@ -7,7 +7,7 @@
     <div class="section-container">
       <div class="hero-content">
         <div class="hero-text">
-          <div class="tag-hero">Version 2.0 is Here</div>
+          <div class="tag-hero">Version 2.1 Stable is Here</div>
           <h1>Experience Music <br/><span class="gradient-text">at the Speed of Light.</span></h1>
           <p>EchoTune is the world's most powerful offline media player. High-fidelity audio, immersive video "swipe" technology, and AI mood filters—all in one beautiful glassmorphic package.</p>
           

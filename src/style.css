@@ -2,15 +2,15 @@
 
 :root {
   /* Color Palette */
-  --bg-dark: #030303;
-  --bg-card: rgba(15, 15, 15, 0.6);
-  --primary: #FF007F;
-  --primary-light: #FF5EAA;
-  --primary-glow: rgba(255, 0, 127, 0.4);
-  --secondary: #7000FF;
-  --secondary-glow: rgba(112, 0, 255, 0.3);
-  --accent: #FF00FF;
-  --accent-glow: rgba(255, 0, 255, 0.3);
+  --bg-dark: #0A0A0E;
+  --bg-card: rgba(15, 15, 20, 0.6);
+  --primary: #8B5CF6;
+  --primary-light: #A78BFA;
+  --primary-glow: rgba(139, 92, 246, 0.4);
+  --secondary: #3B82F6;
+  --secondary-glow: rgba(59, 130, 246, 0.3);
+  --accent: #3B82F6;
+  --accent-glow: rgba(59, 130, 246, 0.3);
   
   --text-main: #FFFFFF;
   --text-muted: #94A3B8;

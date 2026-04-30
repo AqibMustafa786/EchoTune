@@ -3,12 +3,18 @@ import Home from '../views/Home.vue';
 import PrivacyPolicy from '../views/PrivacyPolicy.vue';
 import TermsConditions from '../views/TermsConditions.vue';
 import License from '../views/License.vue';
+import Technical from '../views/Technical.vue';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/technical',
+    name: 'Technical',
+    component: Technical
   },
   {
     path: '/privacy',

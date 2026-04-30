@@ -26,10 +26,11 @@
           </div>
           <div class="footer-col">
             <h4>Technology</h4>
-            <span>Flutter Engine</span>
+            <router-link to="/technical">Technical Compendium</router-link>
+            <span>just_audio Engine</span>
+            <span>Hive Storage</span>
             <span>Provider State</span>
-            <span>Gradle 8+ KTS</span>
-            <span>Haptic Engine</span>
+            <span>SDK 36 Hardened</span>
           </div>
           <div class="footer-col">
             <h4>Legal</h4>

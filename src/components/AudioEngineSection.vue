@@ -13,8 +13,8 @@
       <div class="audio-text">
         <h2 class="reveal">Built for <span class="gradient-text">Audiophiles.</span></h2>
         <p class="reveal">
-          Our custom audio engine bypasses standard limitations to provide bit-perfect playback. 
-          Enjoy seamless transitions between tracks and a 10-band equalizer that gives you total control over your soundstage.
+          Built on the powerful <code>just_audio</code> and <code>audio_service</code> stack, our engine provides bit-perfect playback and background persistence. 
+          Enjoy seamless transitions and a 5-band digital signal processor (DSP) for total soundstage control.
         </p>
         <ul class="audio-features">
           <li class="reveal">High-Fidelity Gain Management</li>
