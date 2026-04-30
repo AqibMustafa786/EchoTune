@@ -43,7 +43,7 @@ const moods = [
 const activeMood = ref('Party');
 
 const currentMoodColor = computed(() => {
-  return moods.find(m => m.name === activeMood.value)?.color || '#8B5CF6';
+  return moods.find(m => m.name === activeMood.value)?.color || '#FF007F';
 });
 </script>
 

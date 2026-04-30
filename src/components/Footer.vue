@@ -5,7 +5,7 @@
         <div class="footer-brand">
           <div class="logo">
             <img src="../assets/Echotune_icon_launcher.jpg" alt="EchoTune Logo" class="logo-img" />
-            <span class="logo-text">EchoTune</span>
+            <span class="logo-text">Echo<span class="pink-text">Tune</span></span>
           </div>
           <p class="brand-desc">The high-performance, premium offline music player built with Flutter. Experience glassmorphism and AI-powered audio management in the palm of your hand.</p>
           <div class="app-info">

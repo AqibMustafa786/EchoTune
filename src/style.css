@@ -4,13 +4,13 @@
   /* Color Palette */
   --bg-dark: #030303;
   --bg-card: rgba(15, 15, 15, 0.6);
-  --primary: #8B5CF6;
-  --primary-light: #A78BFA;
-  --primary-glow: rgba(139, 92, 246, 0.4);
-  --secondary: #06B6D4;
-  --secondary-glow: rgba(6, 182, 212, 0.3);
-  --accent: #D946EF;
-  --accent-glow: rgba(217, 70, 239, 0.3);
+  --primary: #FF007F;
+  --primary-light: #FF5EAA;
+  --primary-glow: rgba(255, 0, 127, 0.4);
+  --secondary: #7000FF;
+  --secondary-glow: rgba(112, 0, 255, 0.3);
+  --accent: #FF00FF;
+  --accent-glow: rgba(255, 0, 255, 0.3);
   
   --text-main: #FFFFFF;
   --text-muted: #94A3B8;
@@ -133,6 +133,10 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.pink-text {
+  color: var(--primary);
 }
 
 .btn-primary {
