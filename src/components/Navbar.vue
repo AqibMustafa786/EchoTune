@@ -122,6 +122,15 @@ onUnmounted(() => {
   filter: brightness(1.1);
 }
 
+@media (max-width: 968px) {
+  .nav-container {
+    max-width: 90%;
+  }
+  .nav-links a:not(.nav-cta):not([href="/technical"]) {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 16px 0;
@@ -131,7 +140,7 @@ onUnmounted(() => {
     padding: 6px 8px 6px 16px;
   }
   .logo {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     gap: 8px;
   }
   .logo-img {

@@ -112,8 +112,8 @@ import heroImage from '../assets/app-screenshots/homescreen.jpeg';
 }
 
 h1 {
-  font-size: 5.5rem;
-  line-height: 1;
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  line-height: 1.1;
   margin-bottom: 32px;
 }
 
@@ -226,29 +226,32 @@ p {
 }
 
 @media (max-width: 1200px) {
-  h1 { font-size: 4rem; }
+  h1 { font-size: 4.5rem; }
+  .hero-content { gap: 40px; }
   .c1, .c2 { display: none; }
 }
 
 @media (max-width: 968px) {
   .hero-section {
-    padding: 120px 0 60px;
+    padding: 140px 0 80px;
   }
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  p { margin-left: auto; margin-right: auto; font-size: 1.1rem; }
-  .hero-btns { justify-content: center; flex-direction: column; align-items: center; }
-  .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
-  .hero-stats { justify-content: center; gap: 20px; }
-  .stat strong { font-size: 1.2rem; }
-  .hero-mockup { width: 100%; margin-top: 40px; }
+  h1 { font-size: 3.8rem; }
+  p { margin-left: auto; margin-right: auto; font-size: 1.2rem; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; gap: 30px; }
+  .hero-mockup { width: 100%; max-width: 400px; margin-top: 40px; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   h1 { font-size: 2.8rem; }
+  p { font-size: 1.1rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
   .tag-hero { font-size: 0.8rem; margin-bottom: 20px; }
-  .hero-stats { flex-wrap: wrap; }
+  .hero-stats { flex-wrap: wrap; justify-content: center; }
 }
 </style>

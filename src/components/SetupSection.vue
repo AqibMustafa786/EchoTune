@@ -143,11 +143,20 @@ const steps = [
   line-height: 1.5;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1100px) {
+  .setup-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
   .setup-grid {
     grid-template-columns: 1fr;
     max-width: 400px;
     margin: 0 auto;
+  }
+  .setup-header h2 {
+    font-size: 2.5rem;
   }
 }
 </style>

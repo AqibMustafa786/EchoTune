@@ -25,9 +25,9 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useReveal } from '../composables/useReveal';
+
+// Reverting to static imports to ensure Intersection Observer finds all elements
 import HeroSection from '../components/HeroSection.vue';
 import SetupSection from '../components/SetupSection.vue';
 import MoodSection from '../components/MoodSection.vue';
@@ -37,55 +37,8 @@ import VideoPlayerSection from '../components/VideoPlayerSection.vue';
 import EqualizerSection from '../components/EqualizerSection.vue';
 import FAQSection from '../components/FAQSection.vue';
 
-gsap.registerPlugin(ScrollTrigger);
-
-onMounted(() => {
-  let ctx = gsap.context(() => {
-    // Optimized GSAP Revelations
-    const reveals = document.querySelectorAll('.reveal');
-    
-    reveals.forEach((el) => {
-      gsap.fromTo(el, 
-        { 
-          opacity: 0, 
-          y: 20, // Reduced distance for smoother feel
-          scale: 0.99
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6, // Faster duration
-          ease: "expo.out", // Snappier ease
-          scrollTrigger: {
-            trigger: el,
-            start: "top 92%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-    });
-
-    // Hero Performance Optimizations
-    gsap.from(".hero-text > *", {
-      opacity: 0,
-      y: 15,
-      duration: 0.5,
-      stagger: 0.08,
-      ease: "power2.out",
-      delay: 0.1
-    });
-
-    gsap.from(".hero-mockup", {
-      opacity: 0,
-      scale: 0.95,
-      x: 30,
-      duration: 0.8,
-      ease: "power3.out",
-      delay: 0.3
-    });
-  });
-});
+// Initialize lightweight Intersection Observer reveals
+useReveal();
 </script>
 
 <style scoped>
@@ -159,4 +112,5 @@ onMounted(() => {
   }
 }
 </style>
+
 

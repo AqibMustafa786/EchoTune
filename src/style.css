@@ -41,6 +41,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 /* Lenis Smooth Scroll Fixes */
@@ -103,12 +104,18 @@ a {
   padding: 0 40px;
 }
 
+@media (max-width: 1024px) {
+  .section-container {
+    padding: 0 32px;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --glass-blur: blur(8px);
   }
   .section-container {
-    padding: 0 20px;
+    padding: 0 24px;
   }
 }
 
@@ -133,6 +140,7 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
 }
 
 .pink-text {
@@ -198,11 +206,12 @@ a {
   transform: translateY(-2px);
 }
 
-/* Animations */
+/* Lightweight Reveal Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s cubic-bezier(0.2, 0, 0.2, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform, opacity;
 }
 
 .reveal.active {

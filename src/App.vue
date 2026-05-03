@@ -11,25 +11,8 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import Lenis from 'lenis';
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
-
-onMounted(() => {
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
-});
 </script>
 
 <style>
