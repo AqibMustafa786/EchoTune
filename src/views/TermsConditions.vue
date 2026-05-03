@@ -81,7 +81,7 @@ onUnmounted(() => {
     
     <header class="legal-header">
       <h1 class="gradient-text">Terms & Conditions</h1>
-      <p class="subtitle">Agreement for the EchoTune experience. Last updated: April 30, 2026.</p>
+      <p class="subtitle">Effective Date: May 4, 2026 | Developer: Aqib Mustafa Surahio</p>
     </header>
 
     <div class="legal-content glass-card">
@@ -145,9 +145,25 @@ onUnmounted(() => {
       </section>
 
       <section class="terms-section">
-        <h2>6. Changes to Terms</h2>
+        <h2>6. Termination</h2>
         <p>
-          We reserve the right to update these terms at any time. Significant changes will be communicated via the app or our official website.
+          You may terminate this agreement at any time by uninstalling the application and ceasing all use. 
+          EchoTune reserves the right to terminate your access to the application without notice if you violate these terms.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>7. Governing Law</h2>
+        <p>
+          These terms are governed by and construed in accordance with international digital software standards. 
+          Any disputes arising from these terms shall be resolved under the jurisdiction of the developer's registered location (Pakistan).
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>8. Contact & Support</h2>
+        <p>
+          For any questions regarding these terms or for technical support, please contact us via the official developer email provided below.
         </p>
       </section>
 
@@ -214,6 +230,7 @@ onUnmounted(() => {
   color: white;
   background: linear-gradient(to right, #fff, #999);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

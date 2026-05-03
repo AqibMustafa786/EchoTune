@@ -41,48 +41,48 @@ gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
   let ctx = gsap.context(() => {
-    // GSAP Revelations
+    // Optimized GSAP Revelations
     const reveals = document.querySelectorAll('.reveal');
     
     reveals.forEach((el) => {
       gsap.fromTo(el, 
         { 
           opacity: 0, 
-          y: 30,
-          scale: 0.98
+          y: 20, // Reduced distance for smoother feel
+          scale: 0.99
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
+          duration: 0.6, // Faster duration
+          ease: "expo.out", // Snappier ease
           scrollTrigger: {
             trigger: el,
-            start: "top 90%",
+            start: "top 92%",
             toggleActions: "play none none none"
           }
         }
       );
     });
 
-    // Specific Hero Animation
+    // Hero Performance Optimizations
     gsap.from(".hero-text > *", {
       opacity: 0,
-      y: 20,
-      duration: 0.6,
-      stagger: 0.1,
+      y: 15,
+      duration: 0.5,
+      stagger: 0.08,
       ease: "power2.out",
-      delay: 0.2
+      delay: 0.1
     });
 
     gsap.from(".hero-mockup", {
       opacity: 0,
-      scale: 0.9,
-      x: 50,
-      duration: 1,
-      ease: "power2.out",
-      delay: 0.4
+      scale: 0.95,
+      x: 30,
+      duration: 0.8,
+      ease: "power3.out",
+      delay: 0.3
     });
   });
 });
@@ -159,3 +159,4 @@ onMounted(() => {
   }
 }
 </style>
+

@@ -82,7 +82,7 @@ onUnmounted(() => {
     
     <header class="legal-header">
       <h1 class="gradient-text">Open Source Licenses</h1>
-      <p class="subtitle">EchoTune is built with love and open-source software.</p>
+      <p class="subtitle">Compiled on May 4, 2026 | EchoTune Project</p>
     </header>
 
     <div class="legal-content glass-card">
@@ -298,6 +298,7 @@ onUnmounted(() => {
   color: white;
   background: linear-gradient(to right, #fff, #999);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

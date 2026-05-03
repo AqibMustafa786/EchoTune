@@ -82,15 +82,15 @@ onUnmounted(() => {
     
     <header class="legal-header">
       <h1 class="gradient-text">Privacy Policy</h1>
-      <p class="subtitle">Your privacy is our absolute priority. Last updated: April 30, 2026.</p>
+      <p class="subtitle">Developer: Aqib Mustafa Surahio | Last updated: May 4, 2026.</p>
     </header>
 
     <div class="legal-content glass-card">
       <section class="policy-section">
-        <h2>1. Zero-Data Collection</h2>
+        <h2>1. Privacy-First Philosophy</h2>
         <p>
-          EchoTune is designed as a **completely offline** media player. We do not collect, store, or share any personal information. 
-          There are no user accounts, no tracking pixels, and no external analytics services integrated into the app.
+          EchoTune is built with a <strong>Privacy-First</strong> philosophy. We are a completely offline media ecosystem. 
+          We do not collect, store, or share your personal media data. Your songs, videos, and habits stay exclusively on your device.
         </p>
       </section>
 
@@ -143,6 +143,13 @@ onUnmounted(() => {
               <p>Used to schedule precise engagement reminders via our local engine.</p>
             </div>
           </div>
+          <div class="permission-item">
+            <div class="perm-icon">📳</div>
+            <div class="perm-info">
+              <h3>Shake Detection</h3>
+              <p>Used for the "Shake to Change" feature (optional).</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -158,17 +165,36 @@ onUnmounted(() => {
       </section>
 
       <section class="policy-section">
-        <h2>5. Data Security</h2>
+        <h2>5. Data Deletion & Retention</h2>
         <p>
-          All app-specific data, such as your favorites, playlists, and equalizer presets, are stored in a local encrypted database (**Hive**) on your device. 
-          Uninstalling the app will remove all local data associated with it.
+          Since EchoTune is an offline player, we do not store your data on any external servers. All data (playlists, favorites, settings) is stored locally.
+        </p>
+        <ul class="feature-list">
+          <li><strong>How to Delete:</strong> You can delete all your data at any time by clearing the application cache/data in your device settings or by uninstalling the application.</li>
+          <li><strong>Retention:</strong> We do not retain any of your media data after the application is removed from your device.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section">
+        <h2>6. Children's Privacy (COPPA)</h2>
+        <p>
+          EchoTune is not intended for children under the age of 13. We do not knowingly collect or solicit personal information from children. 
+          If you are under 13, please do not attempt to use the service or send any personal information about yourself to us.
         </p>
       </section>
 
       <section class="policy-section">
-        <h2>6. Third-Party Links</h2>
+        <h2>7. International Compliance (GDPR/CCPA)</h2>
         <p>
-          The app may contain links to our official website or open-source repositories. Once you leave the app, the privacy policy of the destination site applies.
+          While EchoTune does not collect personal data, we respect international privacy standards. Users in the EU (GDPR) and California (CCPA) have the right to access and control their local data via the app settings.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>8. Third-Party Links & Services</h2>
+        <p>
+          The app may contain links to our official website. Once you leave the app, the privacy policy of the destination site applies. 
+          EchoTune does not use third-party tracking SDKs or analytics providers.
         </p>
       </section>
 
@@ -235,6 +261,7 @@ onUnmounted(() => {
   color: white;
   background: linear-gradient(to right, #fff, #999);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
