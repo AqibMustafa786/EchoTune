@@ -128,61 +128,10 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useReveal } from '../composables/useReveal';
 
-gsap.registerPlugin(ScrollTrigger);
-
-onMounted(() => {
-  let ctx = gsap.context(() => {
-    gsap.from(".back-link", {
-      opacity: 0,
-      x: -20,
-      duration: 0.6,
-      ease: "power2.out"
-    });
-
-    gsap.from(".tech-header h1", {
-      opacity: 0,
-      y: 20,
-      duration: 0.8,
-      delay: 0.2,
-      ease: "power2.out"
-    });
-
-    gsap.from(".tech-header .subtitle", {
-      opacity: 0,
-      y: 20,
-      duration: 0.8,
-      delay: 0.3,
-      ease: "power2.out"
-    });
-
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach((el, index) => {
-      gsap.fromTo(el, 
-        { 
-          opacity: 0, 
-          y: 40,
-          scale: 0.95
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-    });
-  });
-});
+// Initialize lightweight Intersection Observer reveals
+useReveal();
 </script>
 
 <style scoped>

@@ -1,9 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useReveal } from '../composables/useReveal';
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -27,50 +24,15 @@ const handleSwipe = () => {
 onMounted(() => {
   window.addEventListener('touchstart', handleTouchStart, { passive: true });
   window.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-  let ctx = gsap.context(() => {
-    gsap.from(".legal-header > *", {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out"
-    });
-
-    const sections = document.querySelectorAll('.terms-section');
-    sections.forEach((section) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        }
-      });
-    });
-
-    const items = document.querySelectorAll('.term-card');
-    items.forEach((item, index) => {
-      gsap.from(item, {
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.6,
-        scrollTrigger: {
-          trigger: item,
-          start: "top 90%",
-          toggleActions: "play none none none"
-        }
-      });
-    });
-  });
 });
 
 onUnmounted(() => {
   window.removeEventListener('touchstart', handleTouchStart);
   window.removeEventListener('touchend', handleTouchEnd);
 });
+
+// Initialize lightweight Intersection Observer reveals
+useReveal();
 </script>
 
 <template>
